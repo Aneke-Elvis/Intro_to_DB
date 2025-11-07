@@ -1,8 +1,7 @@
 -- alx_book_store.sql
 -- Creates database alx_book_store and required tables for the online bookstore.
 
-DROP DATABASE IF EXISTS alx_book_store;
-CREATE DATABASE alx_book_store;
+CREATE DATABASE IF NOT EXISTS alx_book_store;
 USE alx_book_store;
 
 -- Authors table
