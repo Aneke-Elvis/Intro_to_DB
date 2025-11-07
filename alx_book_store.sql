@@ -8,7 +8,7 @@ USE alx_book_store;
 CREATE TABLE Authors (
   author_id INT AUTO_INCREMENT PRIMARY KEY,
   author_name VARCHAR(215) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ;
 
 -- Books table
 CREATE TABLE Books (
@@ -17,11 +17,8 @@ CREATE TABLE Books (
   author_id INT NOT NULL,
   price DOUBLE NOT NULL,
   publication_date DATE,
-  CONSTRAINT fk_books_author
-    FOREIGN KEY (author_id) REFERENCES authors(author_id)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  FOREIGN KEY (author_id) REFERENCES authors(author_id)
+) ;
 
 -- Customers table
 CREATE TABLE Customers (
@@ -29,18 +26,15 @@ CREATE TABLE Customers (
   customer_name VARCHAR(215) NOT NULL,
   email VARCHAR(215) NOT NULL UNIQUE,
   address TEXT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+);
 
 -- Orders table
 CREATE TABLE Orders (
   order_id INT AUTO_INCREMENT PRIMARY KEY,
   customer_id INT NOT NULL ,
   order_date DATE NOT NULL,
-  CONSTRAINT fk_orders_customer
-    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+) ;
 
 -- Order_Details table
 CREATE TABLE Order_details (
@@ -48,12 +42,6 @@ CREATE TABLE Order_details (
   order_id INT NOT NULL,
   book_id INT NOT NULL,
   quantity DOUBLE NOT NULL,
-  CONSTRAINT fk_orderdetails_order
-    FOREIGN KEY (order_id) REFERENCES orders(order_id)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT fk_orderdetails_book
-    FOREIGN KEY (book_id) REFERENCES books(book_id)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  FOREIGN KEY (order_id) REFERENCES orders(order_id),
+  FOREIGN KEY (book_id) REFERENCES books(book_id)
+) ;
