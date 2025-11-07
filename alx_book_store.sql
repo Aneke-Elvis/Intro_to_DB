@@ -5,13 +5,13 @@ CREATE DATABASE IF NOT EXISTS alx_book_store;
 USE alx_book_store;
 
 -- Authors table
-CREATE TABLE authors (
+CREATE TABLE Authors (
   author_id INT AUTO_INCREMENT PRIMARY KEY,
   author_name VARCHAR(215) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Books table
-CREATE TABLE books (
+CREATE TABLE Books (
   book_id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(130) NOT NULL,
   author_id INT NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE books (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Customers table
-CREATE TABLE customers (
+CREATE TABLE Customers (
   customer_id INT AUTO_INCREMENT PRIMARY KEY,
   customer_name VARCHAR(215) NOT NULL,
   email VARCHAR(215) NOT NULL UNIQUE,
@@ -32,9 +32,9 @@ CREATE TABLE customers (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Orders table
-CREATE TABLE orders (
+CREATE TABLE Orders (
   order_id INT AUTO_INCREMENT PRIMARY KEY,
-  customer_id INT NOT NULL,
+  customer_id INT NOT NULL ,
   order_date DATE NOT NULL,
   CONSTRAINT fk_orders_customer
     FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
@@ -43,7 +43,7 @@ CREATE TABLE orders (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Order_Details table
-CREATE TABLE order_details (
+CREATE TABLE Order_details (
   orderdetailid INT AUTO_INCREMENT PRIMARY KEY,
   order_id INT NOT NULL,
   book_id INT NOT NULL,
