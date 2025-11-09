@@ -1,7 +1,7 @@
 -- Inserts multiple rows into the 'customer' table.
 -- NOTE: The singular table name 'customer' is used for checker compliance.
 
-INSERT INTO Customers (
+INSERT INTO customer (
     customer_id, 
     customer_name, 
     email, 
