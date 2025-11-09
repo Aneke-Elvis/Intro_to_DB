@@ -1,7 +1,7 @@
 -- Inserts a single row into the Customers table with specific values.
 -- The database name is assumed to be passed as an argument to the MySQL command.
 
-INSERT INTO Customers (
+INSERT INTO customer (
     customer_id, 
     customer_name, 
     email, 
