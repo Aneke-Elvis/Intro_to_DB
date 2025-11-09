@@ -1,6 +1,5 @@
 -- Query the Information Schema to get the full description of the 'books' table.
 -- The database name is assumed to be passed as an argument to the MySQL command.
-
 SELECT 
     COLUMN_NAME, 
     COLUMN_TYPE, 
@@ -11,6 +10,6 @@ SELECT
 FROM 
     INFORMATION_SCHEMA.COLUMNS 
 WHERE 
-    TABLE_SCHEMA = DATABASE() 
+    TABLE_SCHEMA = 'alx_book_store'
 AND 
     TABLE_NAME = 'Books';
